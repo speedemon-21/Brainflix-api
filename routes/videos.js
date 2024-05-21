@@ -18,6 +18,11 @@ router.get("/", (req, res) => {
 router.get("/:id", (req, res) => {
   const videos = loadVideoData();
   const foundVideo = videos.find((video) => video.id === req.params.id);
+
+  if (!foundVideo) {
+    return res.status(404).json({ error: "Video not found" });
+  }
+  
   res.json(foundVideo);
 });
 

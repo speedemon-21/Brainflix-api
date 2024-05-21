@@ -1,6 +1,5 @@
 const express = require("express");
 const cors = require("cors");
-const imageRoutes = require("./routes/images");
 const videoRoutes = require("./routes/videos");
 const app = express();
 
@@ -11,7 +10,6 @@ app.use(express.json()); // parse req.body
 app.use(express.static("public"));
 app.use(cors());
 
-app.use("/images", imageRoutes);
 app.use("/videos", videoRoutes);
 
 
